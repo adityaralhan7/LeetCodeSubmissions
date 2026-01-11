@@ -29,7 +29,7 @@ class Solution {
         public ListNode mergeandbreak(int s,int e,ListNode lists[]){
             if(s>e) return null;
             if(s==e){
-                return lists[s];
+                return lists[e];
             }
             int mid=s+(e-s)/2;
             ListNode list1=mergeandbreak(s,mid,lists);
