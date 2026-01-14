@@ -3,9 +3,7 @@ class Solution {
         long m=mass;
         Arrays.sort(asteroids);
         for(int i=0;i<asteroids.length;i++){
-            if(m>=asteroids[i]){
-                m+=asteroids[i];
-            }
+            if(m>=asteroids[i])  m+=asteroids[i];
             else return false;
         }
         return true;
