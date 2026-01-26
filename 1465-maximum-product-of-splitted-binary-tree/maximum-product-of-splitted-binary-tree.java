@@ -17,7 +17,6 @@ class Solution {
     int mod=1000000007;
     long maxProduct=0;
     long totalSum=0;
-    int currSum=0;
     public int maxProduct(TreeNode root) {
       totalSum=sumofTree(root);
       dfs(root);
@@ -26,10 +25,10 @@ class Solution {
     }
     public int sumofTree(TreeNode root){
         if(root==null) return 0;
-        currSum+=root.val;
-        sumofTree(root.left);
-        sumofTree(root.right);
-        return currSum;
+        
+        int l= sumofTree(root.left);
+        int r=sumofTree(root.right);
+        return l+r+root.val;
     }
 
     public long dfs(TreeNode root){
