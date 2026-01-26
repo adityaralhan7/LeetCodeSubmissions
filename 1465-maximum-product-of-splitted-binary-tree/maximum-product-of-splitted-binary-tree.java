@@ -15,29 +15,29 @@
  */
 class Solution {
     int mod=1000000007;
-    static long ans;
-    static long sum;
+    long maxProduct=0;
+    long totalSum=0;
+    int currSum=0;
     public int maxProduct(TreeNode root) {
-        ans=0;
-        sum=0;
-        totalSum(root);
-        dfs(root);
-        return (int)(ans%mod);
-
+      totalSum=sumofTree(root);
+      dfs(root);
+      return (int)(maxProduct%mod);
+        
     }
-    public static void totalSum(TreeNode root){
-        if(root==null) return;
-        sum+=root.val;
-        totalSum(root.left);
-        totalSum(root.right);
-    }
-    public static long dfs(TreeNode root){
+    public int sumofTree(TreeNode root){
         if(root==null) return 0;
-        long left=dfs(root.left);
-        long right=dfs(root.right);
+        currSum+=root.val;
+        sumofTree(root.left);
+        sumofTree(root.right);
+        return currSum;
+    }
 
-        long subSum=root.val+left+right;
-        ans=Math.max(ans,(sum-subSum)*subSum);
+    public long dfs(TreeNode root){
+        if(root==null) return 0;
+        long l=dfs(root.left);
+        long r=dfs(root.right);
+        long subSum=l+r+root.val;
+        maxProduct=Math.max(maxProduct,subSum*(totalSum-subSum));
         return subSum;
     }
 }
