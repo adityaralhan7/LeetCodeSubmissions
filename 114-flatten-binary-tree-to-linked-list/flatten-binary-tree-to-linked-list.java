@@ -22,7 +22,7 @@ class Solution {
             root.left=null;
             newNode.val=list.get(i);
             root.right=newNode;
-            newNode.left=null;
+            
             root=newNode;
         }
     }
