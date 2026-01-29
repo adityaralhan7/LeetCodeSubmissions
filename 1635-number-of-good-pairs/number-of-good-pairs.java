@@ -1,13 +1,17 @@
 class Solution {
     public int numIdenticalPairs(int[] nums) {
-        int count=0;
-        for(int i=0;i<nums.length;i++){
-            for(int j=i+1;j<nums.length;j++){
-                if(nums[i]==nums[j]){
-                    count++;
-                }
+        int ans=0;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int n:nums){
+            if(map.containsKey(n)){
+                ans+=map.get(n);
+                map.put(n,map.get(n)+1);
             }
-        }
-        return count;
+            else{
+                map.put(n,1);
+            }
+            
     }
+    return ans;
+}
 }
