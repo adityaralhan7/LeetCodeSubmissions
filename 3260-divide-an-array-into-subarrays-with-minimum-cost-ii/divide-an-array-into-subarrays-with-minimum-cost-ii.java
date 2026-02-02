@@ -33,7 +33,8 @@ class Solution {
                 currset.remove(leftInd);
                 currsum+=nums[rightInd];
                 currset.add(rightInd);
-            }else{
+            }
+            else{
                 futset.remove(leftInd);
                 futset.add(rightInd);
             }
