@@ -20,13 +20,12 @@ class Solution {
         return root;
     }
     public void reverse(TreeNode left,TreeNode right,int level){
-        if(left==null||right==null) return;
+        if(left==null) return;
         if(level%2!=0){
             int temp=left.val;
             left.val=right.val;
             right.val=temp;
         }
-        
         reverse(left.left,right.right,level+1);
         reverse(left.right,right.left,level+1);
     }
